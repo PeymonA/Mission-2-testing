@@ -1,13 +1,9 @@
 const request = require('supertest');
-const app = require('express')();
+const app = require('../app')
 
-app.get('/', function(req, res) {
-    res.status(200);
-});
-
-request(app)
-  .get('/')
-  .end(function(err, res) {
-        if (err) throw err;
-        console.log(res.body);
+describe('GET /', () => {
+  it('responds with 200', async () => {
+    const res = await request(app).get('/');
+    expect(res.status).toEqual(200);
   });
+});
