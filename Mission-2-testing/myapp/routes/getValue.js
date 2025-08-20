@@ -24,9 +24,9 @@ router.get('/', function(req, res, next) {
         carValue += valuesOfAlphabet.indexOf(model[i]) + 1;
     }
 
-    const returnCarValue = String(carValue * 100 + yearNum);
+    const returnCarValue = carValue * 100 + yearNum;
 
-    res.status(200).json({ message: returnCarValue });
+    res.status(200).json({ carValue: returnCarValue });
 });
 
 module.exports = router;
